@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 import org.PageObjectManager.PageObjectManager;
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
@@ -15,6 +16,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -314,5 +317,17 @@ public class Base_Class {
 		
 	}
 	
-
+	
+	public static String captureScreenshot(String screenshotName) {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		String destination = "target/screenshots/" + screenshotName + ".png";
+		File finalDestination = new File(destination);
+		try {
+			FileUtils.copyFile(source, finalDestination);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return destination;
+	}
 }
