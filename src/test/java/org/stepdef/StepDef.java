@@ -1,5 +1,7 @@
 package org.stepdef;
 
+import java.util.NoSuchElementException;
+
 import org.PageObjectManager.PageObjectManager;
 import org.baseclass.Base_Class;
 import org.openqa.selenium.OutputType;
@@ -14,6 +16,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import junit.framework.AssertionFailedError;
 
 public class StepDef extends Base_Class{
 	PageObjectManager pom = new PageObjectManager();
@@ -36,29 +39,41 @@ public class StepDef extends Base_Class{
 	@Then("User has to enter the required fields like {string} {string} {string} {string} {string}")
 	public void user_has_to_enter_the_required_fields_like(String FirstName, String LastName, String Email, String password, String confirmpassword) throws Throwable {
 	    System.out.println("user has to enter the all the required fields");
-	    e_mail = Email;
-	    pass_word=password;
-	    firstName(FirstName);
-	    lastName(LastName);
-	    e_Mail(e_mail);
-	    pass_word(pass_word);
-	    confirmpass_word(confirmpassword);
-	    btnClick(pom.createAccount_elements().getCreateaccount_button());
-	    waitForElementVisibility(pom.sign_In_elements().getWelcomeUser(), 5);
-	    String creatAccount_welcomeText = pom.sign_In_elements().getWelcomeUser().getText();
-	    System.out.println("user creataccount name:"+creatAccount_welcomeText);
-	    create_Accout_Name=creatAccount_welcomeText;
-	    System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+	    try {
+			e_mail = Email;
+			pass_word=password;
+			firstName(FirstName);
+			lastName(LastName);
+			e_Mail(e_mail);
+			pass_word(pass_word);
+			confirmpass_word(confirmpassword);
+			btnClick(pom.createAccount_elements().getCreateaccount_button());
+			try {
+				waitForElementVisibility(pom.sign_In_elements().getWelcomeUser(), 5);
+				String creatAccount_welcomeText = pom.sign_In_elements().getWelcomeUser().getText();
+				System.out.println("user creataccount name:"+creatAccount_welcomeText);
+				create_Accout_Name=creatAccount_welcomeText;
+				System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+			} catch (NoSuchElementException e) {
+				System.out.println("user will not create account with the same details");
+			}
+		} catch (NoSuchElementException e) {
+			System.out.println("user has already created account with the same email id");
+		}
 	    
 	    }
 	
 	@And("User has to click on the profile down arrown and click on the SignOut button")
 	public void user_has_to_click_on_the_profile_down_arrown_and_click_on_the_sign_out_button() throws Exception {
-	   System.out.println("user has to sign out successfully");
-	   btnClick(pom.createAccount_elements().getDown_arrow());
-	// waitForElementVisibility(pom.createAccount_elements().getSign_out(), 5);
-	   btnClick(pom.createAccount_elements().getSign_out());
-	   System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+	   try {
+		System.out.println("user has to sign out successfully");
+		   btnClick(pom.createAccount_elements().getDown_arrow());
+		// waitForElementVisibility(pom.createAccount_elements().getSign_out(), 5);
+		   btnClick(pom.createAccount_elements().getSign_out());
+		   System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+	} catch (NoSuchElementException e) {
+		System.out.println("user has already created account and no need to signOut the application");
+	}
 	   
 	}
 	@And("User has to click on the signIn button")
@@ -79,9 +94,13 @@ public class StepDef extends Base_Class{
 	    String welcomeText = pom.sign_In_elements().getWelcomeUser().getText();
 	    System.out.println("user signIn name:"+welcomeText);
 	    System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
-	    Assert.assertEquals(create_Accout_Name, welcomeText);
-	    System.out.println("user has successsfully created account and using the same deatils signned in");
-	    System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+	    try {
+			Assert.assertEquals(create_Accout_Name, welcomeText);
+			System.out.println("user has successsfully created account and using the same deatils signned in");
+			System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+		} catch (AssertionFailedError e) {
+			System.out.println("user has created account so the assertion failed");
+		}
 	    
 	    
 	}

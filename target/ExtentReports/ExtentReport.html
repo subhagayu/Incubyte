@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Create Account and sigin Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">02-03-2025 22:45:33</span></a>
+<a href="#"><span class="badge badge-primary">03-03-2025 07:36:18</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('category-view')">
@@ -71,7 +76,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -85,25 +90,25 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Create an account</p>
             <p class="text-sm">
-              <span>10:45:34?PM</span> / <span>00:01:54:918</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>7:36:20?AM</span> / <span>00:01:47:826</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Create an account</h5>
-<span class='badge badge-success'>03.02.2025 10:45:34?PM</span>
-<span class='badge badge-danger'>03.02.2025 10:47:29?PM</span>
-<span class='badge badge-default'>00:01:54:918</span>
+<h5 class="test-status text-fail">Create an account</h5>
+<span class='badge badge-success'>03.03.2025 7:36:20?AM</span>
+<span class='badge badge-danger'>03.03.2025 7:38:07?AM</span>
+<span class='badge badge-default'>00:01:47:826</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -115,36 +120,122 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Create an account to signin</div>
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>Create an account to signin</div>
           <div class="status-avatar float-right mr-4">
             <i class="fa fa-paperclip"></i>
           </div>
       </div>
     </div>
-        <div class="scenario_outline collapse">
+        <div class="scenario_outline ">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>Create an account to signin</div>
+                  <div class="node" id="3"><span class="badge log fail-bg mr-2">Fail</span>Create an account to signin</div>
                     <div class="status-avatar float-right">
                       <i class="fa fa-paperclip"></i>
                     </div>
                 </div>
               </div>
-              <div class="card-body mt-3 collapse">
+              <div class="card-body mt-3 ">
                   <div class="step pass-bg">
                     <span>Given User has to launch the browser and click on the create account button "https://magento.softwaretestingboard.com/"</span>
       <div>
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step fail-bg">
                     <span>Then User has to enter the required fields like "Subhashini" "SathyaNarayanan" "subhahilla@gmail.com" "Karthi01*" "Karthi01*"</span>
       <div>
+        <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: (//span[@class='logged-in'])[1]' (tried for 5 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+	at org.baseclass.Base_Class.waitForElementVisibility(Base_Class.java:238)
+	at org.stepdef.StepDef.user_has_to_enter_the_required_fields_like(StepDef.java:52)
+	at ?.User has to enter the required fields like "Subhashini" "SathyaNarayanan" "subhahilla@gmail.com" "Karthi01*" "Karthi01*"(file:///C:/Users/DELL/eclipse-workspace/Incubyte_Sigin/src/test/resources/FeatureFile/createAccount.feature:6)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//span[@class='logged-in'])[1]"}
+  (Session info: chrome=133.0.6943.142)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [4cffcc81952e95b1c40e7ca3010788ca, findElement {using=xpath, value=(//span[@class='logged-in'])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.142, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60869}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60869/devtoo..., se:cdpVersion: 133.0.6943.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4cffcc81952e95b1c40e7ca3010788ca
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:360)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:354)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy29.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:204)
+	at org.baseclass.Base_Class.waitForElementVisibility(Base_Class.java:238)
+	at org.stepdef.StepDef.user_has_to_enter_the_required_fields_like(StepDef.java:52)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:62)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53)
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</textarea>
+      
       </div>
                   </div>
                   <div class="step pass-bg">
                     <span>org.hooks.hooks.tearDown(io.cucumber.java.Scenario)</span>
-      <div>Screenshot for PASSED
+      <div>Screenshot for FAILED
           <div class="row mb-3"><div class="col-md-3">
 <img data-featherlight='../screenshots/embedded1.png' src="../screenshots/embedded1.png">
     
@@ -160,22 +251,62 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="7"><span class="badge log pass-bg mr-2">Pass</span>User has to SignOut the application</div>
+        <div class="node" id="7"><span class="badge log fail-bg mr-2">Fail</span>User has to SignOut the application</div>
           <div class="status-avatar float-right mr-4">
             <i class="fa fa-paperclip"></i>
           </div>
       </div>
     </div>
-        <div class="collapse">
+        <div class="">
           <div class="card-body">
-              <div class="step pass-bg" title="org.stepdef.StepDef.user_has_to_click_on_the_profile_down_arrown_and_click_on_the_sign_out_button()">
+              <div class="step fail-bg" title="org.stepdef.StepDef.user_has_to_click_on_the_profile_down_arrown_and_click_on_the_sign_out_button()">
                 <span>And User has to click on the profile down arrown and click on the SignOut button</span>
       <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id="store.links"]/..//span/button/span"}
+  (Session info: chrome=133.0.6943.142)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [4cffcc81952e95b1c40e7ca3010788ca, findElement {using=xpath, value=//div[@id="store.links"]/..//span/button/span}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.142, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60869}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60869/devtoo..., se:cdpVersion: 133.0.6943.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4cffcc81952e95b1c40e7ca3010788ca
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:360)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:354)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy29.getWrappedElement(Unknown Source)
+	at org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:51)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:466)
+	at org.baseclass.Base_Class.btnClick(Base_Class.java:250)
+	at org.stepdef.StepDef.user_has_to_click_on_the_profile_down_arrown_and_click_on_the_sign_out_button(StepDef.java:70)
+	at ?.User has to click on the profile down arrown and click on the SignOut button(file:///C:/Users/DELL/eclipse-workspace/Incubyte_Sigin/src/test/resources/FeatureFile/createAccount.feature:14)
+</textarea>
+      
       </div>
               </div>
               <div class="step pass-bg" title="AFTER">
                 <span>org.hooks.hooks.tearDown(io.cucumber.java.Scenario)</span>
-      <div>Screenshot for PASSED
+      <div>Screenshot for FAILED
           <div class="row mb-3"><div class="col-md-3">
 <img data-featherlight='../screenshots/embedded2.png' src="../screenshots/embedded2.png">
     
@@ -190,27 +321,38 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="10"><span class="badge log pass-bg mr-2">Pass</span>User has to SignIn with the created account</div>
+        <div class="node" id="10"><span class="badge log fail-bg mr-2">Fail</span>User has to SignIn with the created account</div>
           <div class="status-avatar float-right mr-4">
             <i class="fa fa-paperclip"></i>
           </div>
       </div>
     </div>
-        <div class="collapse">
+        <div class="">
           <div class="card-body">
               <div class="step pass-bg" title="org.stepdef.StepDef.user_has_to_click_on_the_sign_in_button()">
                 <span>And User has to click on the signIn button</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="org.stepdef.StepDef.user_has_to_enter_the_and_user_has_to_click_on_the_sign_in_button(java.lang.String,java.lang.String)">
+              <div class="step fail-bg" title="org.stepdef.StepDef.user_has_to_enter_the_and_user_has_to_click_on_the_sign_in_button(java.lang.String,java.lang.String)">
                 <span>And User has to enter the "<Email>" "<password>" and user has to click on the SignIn button</span>
       <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: expected [] but found [null]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at org.stepdef.StepDef.user_has_to_enter_the_and_user_has_to_click_on_the_sign_in_button(StepDef.java:98)
+	at ?.User has to enter the "<Email>" "<password>" and user has to click on the SignIn button(file:///C:/Users/DELL/eclipse-workspace/Incubyte_Sigin/src/test/resources/FeatureFile/createAccount.feature:18)
+</textarea>
+      
       </div>
               </div>
               <div class="step pass-bg" title="AFTER">
                 <span>org.hooks.hooks.tearDown(io.cucumber.java.Scenario)</span>
-      <div>Screenshot for PASSED
+      <div>Screenshot for FAILED
           <div class="row mb-3"><div class="col-md-3">
 <img data-featherlight='../screenshots/embedded3.png' src="../screenshots/embedded3.png">
     
@@ -234,26 +376,26 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="test-wrapper row view category-view attributes-view">
+<div class="test-wrapper row view exception-view attributes-view">
 <div class="test-list">
 <div class="test-list-tools">
-<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">3</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>4</span>
+<span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">@001CreateAccout</p>
-<p class="duration text-sm">4 tests</p>
+<p class="name">org.openqa.selenium.NoSuchElementException</p>
+<p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@001CreateAccout</h4>
-<span status="pass" class='badge log pass-bg'>4 passed</span>
+<h4>org.openqa.selenium.NoSuchElementException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -264,9 +406,133 @@
 </tr>
 </thead>
 <tbody>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>22:45:34 PM</td>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>07:37:28 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='8'>And User has to click on the profile down arrown and click on the SignOut button</a>
+<div class="">
+<span class="badge badge-default">Create an account.User has to SignOut the application.And User has to click on the profile down arrown and click on the SignOut button</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>07:37:39 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='12'>And User has to enter the "<Email>" "<password>" and user has to click on the SignIn button</a>
+<div class="">
+<span class="badge badge-default">Create an account.User has to SignIn with the created account.And User has to enter the "<Email>" "<password>" and user has to click on the SignIn button</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.openqa.selenium.TimeoutException</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.TimeoutException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>07:36:36 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='5'>Then User has to enter the required fields like "Subhashini" "SathyaNarayanan" "subhahilla@gmail.com" "Karthi01*" "Karthi01*"</a>
+<div class="">
+<span class="badge badge-default">Create an account.Create an account to signin.Then User has to enter the required fields like "Subhashini" "SathyaNarayanan" "subhahilla@gmail.com" "Karthi01*" "Karthi01*"</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>4</span>
+</span>
+<p class="name">@001CreateAccout</p>
+<p class="duration text-sm">4 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@001CreateAccout</h4>
+<span status="fail" class='badge log badge-danger'>4 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>07:36:20 AM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>Create an account to signin</a>
 <div class="">
@@ -274,9 +540,9 @@
 </div>
 </td>
 </tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>22:45:34 PM</td>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>07:36:20 AM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='3'>Create an account to signin</a>
 <div class="">
@@ -284,9 +550,9 @@
 </div>
 </td>
 </tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>22:46:41 PM</td>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>07:37:28 AM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='7'>User has to SignOut the application</a>
 <div class="">
@@ -294,9 +560,9 @@
 </div>
 </td>
 </tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>22:46:53 PM</td>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>07:37:33 AM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='10'>User has to SignIn with the created account</a>
 <div class="">
@@ -321,25 +587,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>02-03-2025 22:45:33</h3>
+<h3>03-03-2025 07:36:18</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>02-03-2025 22:47:29</h3>
+<h3>03-03-2025 07:38:07</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -355,12 +621,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>1</b> features passed
+<div><small data-tooltip='0%'>
+<b>0</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> features failed,
+<small data-tooltip='100%'><b>1</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -378,9 +644,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>3</b> scenarios passed</small></div>
+<div><small data-tooltip='0%'><b>0</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> scenarios failed,
+<small data-tooltip='100%'><b>3</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -398,9 +664,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>8</b> steps passed</small></div>
+<div><small data-tooltip='62%'><b>5</b> steps passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> steps failed,
+<small data-tooltip='37%'><b>3</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -417,7 +683,7 @@
 </div></div>
 <script>
 var timeline = {
-"Create an account":114.918
+"Create an account":107.826
 };
 </script>
 <div class="row">
@@ -428,11 +694,11 @@ var timeline = {
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
 <td>@001CreateAccout</td>
+<td>0</td>
 <td>4</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>100%</td>
+<td>0%</td>
 </tr>
 </tbody>
 </table></div>
@@ -443,19 +709,19 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 1,
-failParent: 0,
+passParent: 0,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 3,
-failChild: 0,
+passChild: 0,
+failChild: 3,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 8,
-failGrandChild: 0,
+passGrandChild: 5,
+failGrandChild: 3,
 warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,

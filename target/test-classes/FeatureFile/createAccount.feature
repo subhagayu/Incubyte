@@ -8,7 +8,7 @@ Then User has to enter the required fields like "<FirstName>" "<LastName>" "<Ema
 
 Examples:
 |url|FirstName|LastName|Email|password|confirmpassword|
-|https://magento.softwaretestingboard.com/|Subhashini|SathyaNarayanan|subhahilla@gmail.com|Karthi01*|Karthi01*|
+|https://magento.softwaretestingboard.com/|Subhashini|SathyaNarayanan|subhahilppa@gmail.com|Karthi01*|Karthi01*|
 
 Scenario: User has to SignOut the application
 And User has to click on the profile down arrown and click on the SignOut button
